@@ -18,8 +18,7 @@ class AmoController extends AbstractController
     {
 
         $code = $request->get('code');
-        if ($code)
-        {
+        if ($code) {
 //            получить refresh token и сохранить
             $amocrmService->getToken($code);
             return new Response('Done');
@@ -28,16 +27,26 @@ class AmoController extends AbstractController
         return $this->redirect($url, 301);
 
     }
+
     #[Route('/get-leads', name: 'get-leads')]
     public function getLeads(ParameterBagInterface $param, Request $request, AmocrmService $amocrmService)
     {
-        $leads = $amocrmService->getLeads();
-        return new JsonResponse($leads);
+        $payload['leads'] = $amocrmService->getLeads();
+        $payload['contacts'] = $amocrmService->getContacts();
+        return new JsonResponse($payload);
     }
+
     #[Route('/get-contacts', name: 'get-contacts')]
     public function getContacts(ParameterBagInterface $param, Request $request, AmocrmService $amocrmService)
     {
         $contacts = $amocrmService->getContacts();
         return new JsonResponse($contacts);
+    }
+
+    #[Route('/add_contacts', name: 'add_contacts')]
+    public function addContact($name, $phone, $email, AmocrmService $amocrmService): Response
+    {
+        $amocrmService->addContact($name, $phone, $email);
+        return new Response();
     }
 }

@@ -4,11 +4,12 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
-    amocrm.client_id: '55097909-cfd2-4be3-950d-1206a4e40a7e'
-    amocrm.client_secret: 'BaZxQcD9EoqlvBS7VgRnprxBQlzOZgd7LlDclz2eW2eIYwq4diYqdecKLanmCJlq'
-    amocrm.subdomain: 'ryantodd1176yandexru'
-    amocrm.redirect_uri: 'https://f2785bffadbe.ngrok.io/amo/token'
+    amocrm.client_id: 'a1bf0efa-22b0-4fc8-92f9-ced9e4cf2188'
+    amocrm.client_secret: 'd5RjbzEGQELlxuzaavK8abOPzzx3yA9sfJEXUDXrR6o3fya6R8GIImqquebSuhv2'
+    amocrm.subdomain: 'ryantodd1176mailru'
+    amocrm.redirect_uri: 'https://a49385342960.ngrok.io/amo/token'
     amocrm.token_file: '%kernel.project_dir%/var/amo_tokens.json'
+    foo_path: '%kernel.project_dir%/var/'
 
 services:
     # default configuration for services in *this* file
